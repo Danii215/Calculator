@@ -19,7 +19,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: clamp(75rem, 90vh, 100vh);
 
     @include max($breakSize) {
         height: unset;
