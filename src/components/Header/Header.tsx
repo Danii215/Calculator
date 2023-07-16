@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import style from "./Header.module.scss";
 
 export function Header() {
-    const [theme, setTheme] = useState(
-        window.matchMedia("(prefers-color-scheme: dark)").matches
+    const [theme, setTheme] = useState(() => {
+        const storedTheme = localStorage.getItem("theme");
+        return storedTheme
+            ? storedTheme
+            : window.matchMedia("(prefers-color-scheme: dark)").matches
             ? "dark"
-            : "light",
-    );
+            : "light";
+    });
 
     useEffect(() => {
         const coloredElements = document.querySelectorAll("[data-theme]");
@@ -16,7 +19,9 @@ export function Header() {
     });
 
     function changeTheme(event: { target: { value: string } }) {
-        setTheme(event.target.value);
+        const newTheme = event.target.value;
+        setTheme(newTheme);
+        localStorage.setItem("theme", newTheme);
     }
 
     return (
