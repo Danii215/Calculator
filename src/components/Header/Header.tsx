@@ -38,6 +38,7 @@ export function Header() {
                         value="dark"
                         checked={theme === "dark"}
                         onChange={changeTheme}
+                        aria-label="Dark Theme"
                     />
                 </div>
                 <div className={style.header__option}>
@@ -49,6 +50,7 @@ export function Header() {
                         value="light"
                         checked={theme === "light"}
                         onChange={changeTheme}
+                        aria-label="Light Theme"
                     />
                 </div>
                 <div className={style.header__option}>
@@ -60,6 +62,7 @@ export function Header() {
                         value="purple"
                         checked={theme === "purple"}
                         onChange={changeTheme}
+                        aria-label="Purple Theme"
                     />
                 </div>
             </div>
