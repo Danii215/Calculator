@@ -1,0 +1,143 @@
+@import "@/assets/sass/abstracts/variables";
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: $white;
+    margin-bottom: 1.2rem;
+
+    & > h1 {
+        font-size: 2.5rem;
+    }
+
+    &__theme {
+        display: flex;
+        font-size: 0.8rem;
+        letter-spacing: 0.1rem;
+        align-items: center;
+
+        & > h2 {
+            margin-right: 3rem;
+        }
+    }
+
+    &__option {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        margin-bottom: 1.6rem;
+        font-size: 1.1rem;
+        gap: 0.5rem;
+        position: relative;
+
+        & > input {
+            position: absolute;
+            width: 1.2rem;
+            height: 1.2rem;
+            border-radius: 1rem;
+            background-color: $veryDarkDesaturatedBlueToggleBackgroundKeypadBackground;
+            appearance: none;
+            bottom: 0.3rem;
+            animation: uncheck 0.2s ease-out;
+            cursor: pointer;
+
+            &:checked {
+                background-color: $redKeyBackgroundToggle;
+                animation: check 0.2s ease-in;
+
+                &:hover,
+                &:active {
+                    background-color: $brightRed;
+                }
+            }
+        }
+
+        &:first-of-type {
+            & > label {
+                border-radius: 1rem 0.3rem 0.3rem 1rem;
+            }
+        }
+
+        &:last-of-type {
+            & > label {
+                border-radius: 0.3rem 1rem 1rem 0.3rem;
+            }
+        }
+
+        & > label {
+            width: 1.8rem;
+            height: 1.8rem;
+            background-color: $veryDarkDesaturatedBlueToggleBackgroundKeypadBackground;
+            margin-top: 0.2rem;
+            margin: 0 -0.1rem 0 -0.1rem;
+        }
+    }
+
+    &[data-theme="light"] {
+        color: $veryDarkGrayishYellow;
+
+        .header__option {
+            & > input {
+                background-color: $grayishRedToggleBackgroundKeypadBackground;
+
+                &:checked {
+                    background-color: $orangeKeyBackgroundToggle;
+
+                    &:hover,
+                    &:active {
+                        background-color: $brightOrange;
+                    }
+                }
+            }
+
+            & > label {
+                background-color: $grayishRedToggleBackgroundKeypadBackground;
+            }
+        }
+    }
+
+    &[data-theme="purple"] {
+        color: $lightYellow;
+
+        .header__option {
+            & > input {
+                background-color: $veryDarkVioletToggleBackgroundKeypadBackgroundScreenBackground;
+
+                &:checked {
+                    background-color: $pureCyanKeyBackgroundToggle;
+
+                    &:hover,
+                    &:active {
+                        background-color: $brightOcean;
+                    }
+                }
+            }
+
+            & > label {
+                background-color: $veryDarkVioletToggleBackgroundKeypadBackgroundScreenBackground;
+            }
+        }
+    }
+}
+
+@keyframes uncheck {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+}
+
+@keyframes check {
+    0% {
+        transform: scale(0);
+    }
+    80% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

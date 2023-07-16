@@ -6,14 +6,15 @@
     margin: 0;
     padding: 0;
     box-sizing: inherit;
+    font-family: "League Spartan", sans-serif;
 }
 html {
     scroll-behavior: smooth;
+    font-size: 62.5%;
 }
 body {
     box-sizing: border-box;
     position: relative;
-    font-family: "League Spartan", sans-serif;
 }
 main {
     position: relative;

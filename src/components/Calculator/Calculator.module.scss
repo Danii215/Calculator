@@ -1,0 +1,177 @@
+@import "@/assets/sass/abstracts/variables";
+@import "@/assets/sass/abstracts/utilities";
+
+.screen {
+    width: 100%;
+    background-color: $veryDarkDesaturatedBlueScreenBackground;
+    border-radius: 1rem;
+    color: $white;
+    padding: 4rem 3rem 3.5rem;
+    font-size: 5rem;
+    text-align: end;
+    margin-bottom: 2.2rem;
+
+    @include max($breakSize) {
+        padding: 2.8rem 2.6rem;
+        font-size: 3.5rem;
+    }
+
+    &[data-theme="light"] {
+        background-color: $veryLightGrayScreenBackground;
+        color: $veryDarkGrayishYellow;
+    }
+
+    &[data-theme="purple"] {
+        background-color: $veryDarkVioletToggleBackgroundKeypadBackgroundScreenBackground;
+        color: $lightYellow;
+    }
+}
+
+.keypad {
+    width: 100%;
+    background-color: $veryDarkDesaturatedBlueToggleBackgroundKeypadBackground;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+    grid-template-areas:
+        ". . . ."
+        ". . . ."
+        ". . . ."
+        ". . . ."
+        "reset reset equals equals";
+
+    &__button {
+        appearance: none;
+        border: 0;
+        border-radius: 0.8rem;
+        background-color: $lightGrayishOrangeKeyBackground;
+        border-bottom: solid 0.4rem $grayishOrangeKeyShadow;
+        color: $desaturatedDarkBlueKeyShadow;
+        font-size: 4rem;
+        min-height: 7rem;
+        padding-top: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover,
+        &:active {
+            background-color: $white;
+        }
+
+        &--blue {
+            background-color: $desaturatedDarkBlueKeyBackground;
+            border-bottom: solid 0.4rem $desaturatedDarkBlueKeyShadow;
+            color: $white;
+            font-size: 2.1rem !important;
+
+            &:hover,
+            &:active {
+                background-color: $brightBlue;
+            }
+        }
+
+        &--reset {
+            grid-area: reset;
+        }
+
+        &--equals {
+            grid-area: equals;
+            color: $white;
+            background-color: $redKeyBackgroundToggle;
+            border-bottom: solid 0.4rem $darkRedKeyShadow;
+
+            &:hover,
+            &:active {
+                background-color: $brightRed;
+            }
+        }
+
+        @include max($breakSize) {
+            font-size: 3rem;
+        }
+    }
+
+    @include max($breakSize) {
+        gap: 1rem;
+    }
+
+    &[data-theme="light"] {
+        background-color: $grayishRedToggleBackgroundKeypadBackground;
+
+        .keypad__button {
+            background-color: $lightGrayishYellowKeyBackground;
+            border-bottom: solid 0.4rem $darkGrayishOrangeKeyShadow;
+            color: $veryDarkGrayishYellow;
+
+            &:hover,
+            &:active {
+                background-color: $white;
+            }
+
+            &--blue {
+                background-color: $darkModerateCyanKeyBackground;
+                border-bottom: solid 0.4rem $veryDarkCyanKeyShadow;
+                color: $white;
+
+                &:hover,
+                &:active {
+                    background-color: $brightCyan;
+                }
+            }
+
+            &--equals {
+                color: $white;
+                background-color: $orangeKeyBackgroundToggle;
+                border-bottom: solid 0.4rem $darkOrangeKeyShadow;
+
+                &:hover,
+                &:active {
+                    background-color: $brightOrange;
+                }
+            }
+        }
+    }
+
+    &[data-theme="purple"] {
+        background-color: $veryDarkVioletToggleBackgroundKeypadBackgroundScreenBackground;
+
+        .keypad__button {
+            background-color: $veryDarkVioletKeyBackground;
+            border-bottom: solid 0.4rem $darkMagentaKeyShadow;
+            color: $lightYellow;
+
+            &:hover,
+            &:active {
+                background-color: $brightPurple;
+            }
+
+            &--blue {
+                background-color: $darkVioletKeyBackground;
+                border-bottom: solid 0.4rem $vividMagentaKeyShadow;
+                color: $white;
+
+                &:hover,
+                &:active {
+                    background-color: $brightNightmare;
+                }
+            }
+
+            &--equals {
+                color: $veryDarkBlue;
+                background-color: $pureCyanKeyBackgroundToggle;
+                border-bottom: solid 0.4rem $softCyanKeyShadow;
+
+                &:hover,
+                &:active {
+                    background-color: $brightOcean;
+                }
+            }
+        }
+    }
+}

@@ -1,47 +1,51 @@
-$mobileSize: 800; // 375 for mobile, 1440 for desktop
+$breakSize: 800;
+
+$desktop: 144rem;
+$mobile: 37.5rem;
 
 // Theme 1
 
-$veryDarkDesaturatedBlueMainBackground: hsl(222, 26%, 31%);
-$veryDarkDesaturatedBlueToggleBackgroundKeypadBackground: hsl(223, 31%, 20%);
-$veryDarkDesaturatedBlueScreenBackground: hsl(224, 36%, 15%);
-$desaturatedDarkBlueKeyBackground: hsl(225, 21%, 49%);
-$desaturatedDarkBlueKeyShadow: hsl(224, 28%, 35%);
-$redKeyBackgroundToggle: hsl(6, 63%, 50%);
-$darkRedKeyShadow: hsl(6, 70%, 34%);
-$lightGrayishOrangeKeyBackground: hsl(30, 25%, 89%);
-$grayishOrangeKeyShadow: hsl(28, 16%, 65%);
-$veryDarkGrayishBlue: hsl(221, 14%, 31%);
-$white: hsl(0, 0%, 100%);
+$veryDarkDesaturatedBlueMainBackground: #3a4764;
+$veryDarkDesaturatedBlueToggleBackgroundKeypadBackground: #232c43;
+$veryDarkDesaturatedBlueScreenBackground: #182034;
+$desaturatedDarkBlueKeyBackground: #637097;
+$desaturatedDarkBlueKeyShadow: #404e72;
+$brightRed: #f96c5b;
+$redKeyBackgroundToggle: #d03f2f;
+$darkRedKeyShadow: #93261a;
+$lightGrayishOrangeKeyBackground: #eae3dc;
+$grayishOrangeKeyShadow: #b4a597;
+$veryDarkGrayishBlue: #444b5a;
+$white: #ffffff;
+$brightBlue: #a2b3e1;
 
 // Theme 2
 
-$lightGrayMainBackground: hsl(0, 0%, 90%);
-$grayishRedToggleBackgroundKeypadBackground: hsl(0, 5%, 81%);
-$veryLightGrayScreenBackground: hsl(0, 0%, 93%);
-$darkModerateCyanKeyBackground: hsl(185, 42%, 37%);
-$veryDarkCyanKeyShadow: hsl(185, 58%, 25%);
-$orangeKeyBackgroundToggle: hsl(25, 98%, 40%);
-$darkOrangeKeyShadow: hsl(25, 99%, 27%);
-$lightGrayishYellowKeyBackground: hsl(45, 7%, 89%);
-$darkGrayishOrangeKeyShadow: hsl(35, 11%, 61%);
-$veryDarkGrayishYellow: hsl(60, 10%, 19%);
-$whiteText: hsl(0, 0%, 100%);
+$lightGrayMainBackground: #e6e6e6;
+$grayishRedToggleBackgroundKeypadBackground: #d1cccc;
+$veryLightGrayScreenBackground: #ededed;
+$darkModerateCyanKeyBackground: #377f86;
+$veryDarkCyanKeyShadow: #1b5f65;
+$orangeKeyBackgroundToggle: #ca5502;
+$darkOrangeKeyShadow: #893901;
+$lightGrayishYellowKeyBackground: #e5e4e1;
+$darkGrayishOrangeKeyShadow: #a69d91;
+$veryDarkGrayishYellow: #35352c;
+$brightOrange: #ff8b38;
+$brightCyan: #62b5bd;
 
 // Theme 3
 
-$veryDarkVioletMainBackground: hsl(268, 75%, 9%);
-$veryDarkVioletToggleBackgroundKeypadBackgroundScreenBackground: hsl(
-    268,
-    71%,
-    12%
-);
-$darkVioletKeyBackground: hsl(281, 89%, 26%);
-$vividMagentaKeyShadow: hsl(285, 91%, 52%);
-$pureCyanKeyBackgroundToggle: hsl(176, 100%, 44%);
-$softCyanKeyShadow: hsl(177, 92%, 70%);
-$veryDarkVioletKeyBackground: hsl(268, 47%, 21%);
-$darkMagentaKeyShadow: hsl(290, 70%, 36%);
-$lightYellow: hsl(52, 100%, 62%);
-$veryDarkBlue: hsl(198, 20%, 13%);
-$whiteText: hsl(0, 0%, 100%);
+$veryDarkVioletMainBackground: #160628;
+$veryDarkVioletToggleBackgroundKeypadBackgroundScreenBackground: #1d0934;
+$darkVioletKeyBackground: #58077d;
+$vividMagentaKeyShadow: #bc15f4;
+$pureCyanKeyBackgroundToggle: #00e0d1;
+$softCyanKeyShadow: #6cf9f2;
+$veryDarkVioletKeyBackground: #341c4f;
+$darkMagentaKeyShadow: #871c9c;
+$lightYellow: #ffe53d;
+$veryDarkBlue: #1b2428;
+$brightOcean: #94fff9;
+$brightPurple: #6b34ac;
+$brightNightmare: #8631b0;

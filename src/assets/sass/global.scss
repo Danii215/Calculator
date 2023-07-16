@@ -1,3 +1,36 @@
 @import "./abstracts/utilities";
 @import "./abstracts/variables";
 @import "./base/reset";
+
+body {
+    background-color: $veryDarkDesaturatedBlueMainBackground;
+    transition: all 0.2s;
+
+    &[data-theme="light"] {
+        background-color: $lightGrayMainBackground;
+    }
+
+    &[data-theme="purple"] {
+        background-color: $veryDarkVioletMainBackground;
+    }
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+
+    @include max($breakSize) {
+        height: unset;
+    }
+}
+
+.calculator {
+    width: 58.8rem;
+    padding: 2.8rem 2.4rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
