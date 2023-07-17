@@ -1,3 +1,12 @@
+/**
+ * This file exists to separate some functions from the rest of
+ * the logic of the project. All the calculations doesn't have
+ * to happen inside the Calculator component, so they went
+ * here for better organization and documentation.
+ *
+ * @author Dani215 *-*
+ */
+
 export const separators: string[] = ["+", "-", "x", "/"];
 
 // Allowed keyboard inputs
@@ -30,7 +39,7 @@ export type ButtonProps = {
 /**
  * Puts a symbol on the screen. If it's an operator, then it
  * can be after a zero, but not after another operator. If
- * it's a number, then it cannot be after a zero.
+ * it's a number, then it cannot be after a lone zero.
  * @param {string} expression - The screen.
  * @param {string} value - The value to be inserted.
  * @returns {string} The result after all the verifications.
@@ -47,9 +56,14 @@ export function putSymbol(expression: string, value: string): string {
             }
         }
     } else {
-        if (isAfterZero(expression)) {
+        if (isAfterZero(expression) && value !== ".") {
             return value;
         } else {
+            if (value === ".") {
+                return hasComma(separateExpressions(expression))
+                    ? expression
+                    : expression + value;
+            }
             return expression + value;
         }
     }
@@ -95,6 +109,43 @@ export function removeSymbol(expression: string): string {
         return "0";
     }
     return expression.slice(0, -1);
+}
+
+/**
+ * Separates all the expressions on the screen in individual expressions.
+ * This method does NOT account for operator preference, such as
+ * x > +. It solves the expressions by order. It also adds an 0 to
+ * the beginning of the expressions, case the first is a minus sign.
+ * @param {string} expression - The expressions to be separated.
+ * @returns {string[]} The collection of expressions.
+ */
+export function separateExpressions(expression: string): string[] {
+    const substrings: string[] = [];
+    let currentSubstring = "";
+
+    for (let i = 0; i < expression.length; i++) {
+        const character: string = expression[i];
+
+        if (separators.includes(character)) {
+            if (currentSubstring !== "") {
+                substrings.push(currentSubstring);
+                currentSubstring = "";
+            }
+            substrings.push(character);
+            continue;
+        }
+        currentSubstring += character;
+    }
+
+    if (currentSubstring !== "") {
+        substrings.push(currentSubstring);
+    }
+
+    if (substrings[0] === "-") {
+        substrings.unshift("0");
+    }
+
+    return substrings;
 }
 
 /**
@@ -146,40 +197,14 @@ function isValueOperator(value: string): boolean {
 }
 
 /**
- * Separates all the expressions on the screen in individual expressions.
- * This method does NOT account for operator preference, such as
- * x > +. It solves the expressions by order. It also adds an 0 to
- * the beginning of the expressions, case the first is a minus sign.
- * @param {string} expression - The expressions to be separated.
- * @returns {string[]} The collection of expressions.
+ * Verifies if the last expression being shown already has a
+ * comma. It shouldn't have more than one.
+ * @param {string[]} expression - The list of expressions, which
+ * the last one will be verified.
+ * @returns {boolean} Whether or not the last expression has a comma.
  */
-export function separateExpressions(expression: string): string[] {
-    const substrings: string[] = [];
-    let currentSubstring = "";
-
-    for (let i = 0; i < expression.length; i++) {
-        const character: string = expression[i];
-
-        if (separators.includes(character)) {
-            if (currentSubstring !== "") {
-                substrings.push(currentSubstring);
-                currentSubstring = "";
-            }
-            substrings.push(character);
-            continue;
-        }
-        currentSubstring += character;
-    }
-
-    if (currentSubstring !== "") {
-        substrings.push(currentSubstring);
-    }
-
-    if (substrings[0] === "-") {
-        substrings.unshift("0");
-    }
-
-    return substrings;
+function hasComma(expression: string[]): boolean {
+    return expression[expression.length - 1].includes(".");
 }
 
 /**

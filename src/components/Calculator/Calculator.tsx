@@ -15,7 +15,7 @@ export function Calculator() {
     const [preview, setPreview] = useState("");
     const [success, setSuccess] = useState(false);
 
-    // Calculator's buttons
+    // Calculator's buttons.
     const buttons = [
         { buttonData: { character: "7", onClick: () => handleClick("7") } },
         { buttonData: { character: "8", onClick: () => handleClick("8") } },
@@ -55,7 +55,7 @@ export function Calculator() {
         },
     ];
 
-    // Horizontal scroll case the number on screen is too large
+    // Horizontal scroll case the number on screen is too large.
     function horizontalScroll(e: React.WheelEvent<HTMLDivElement>) {
         const container = e.currentTarget;
         const scrollAmount = 100;
@@ -63,7 +63,7 @@ export function Calculator() {
         container.scrollLeft += e.deltaY > 0 ? scrollAmount : -scrollAmount;
     }
 
-    // Handle keyboard inputs properly
+    // Handle keyboard inputs properly.
     function insertKeyboard(e: React.KeyboardEvent<HTMLDivElement>) {
         let digit: string = e.key;
 
@@ -87,7 +87,7 @@ export function Calculator() {
         }
     }
 
-    // What happens when you click calculator's buttons
+    // What happens when you click calculator's buttons.
     function handleClick(value: string) {
         if (value === "DEL") {
             setScreen(removeSymbol(screen));
@@ -105,6 +105,7 @@ export function Calculator() {
         setScreen(putSymbol(screen, value));
     }
 
+    // Plays little animation when the operation is complete.
     function successAnimation() {
         setSuccess(true);
         setTimeout(() => {
@@ -112,6 +113,9 @@ export function Calculator() {
         }, 100);
     }
 
+    // Controls what the preview is displaying. It shouldn't appear
+    // when its exactly equal to what the screen is showing, or
+    // the operation is still not complete.
     if (preview === screen) setPreview("");
     useEffect(() => {
         if (preview === screen) {
