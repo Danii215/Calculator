@@ -1,0 +1,159 @@
+@import "@/assets/sass/abstracts/variables";
+@import "@/assets/sass/abstracts/utilities";
+
+.button {
+    appearance: none;
+    border: 0;
+    border-radius: 0.8rem;
+    background-color: $lightGrayishOrangeKeyBackground;
+    border-bottom: solid 0.4rem $grayishOrangeKeyShadow;
+    color: $desaturatedDarkBlueKeyShadow;
+    font-size: 4rem;
+    min-height: 7rem;
+    padding-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        background-color: $white;
+    }
+
+    &:active,
+    &[data-active="true"] {
+        border-bottom: unset;
+        border-top: solid 0.4rem $veryDarkDesaturatedBlueMainBackground;
+    }
+
+    &--blue {
+        background-color: $desaturatedDarkBlueKeyBackground;
+        border-bottom: solid 0.4rem $desaturatedDarkBlueKeyShadow;
+        color: $white;
+        font-size: 2.1rem !important;
+
+        &:hover {
+            background-color: $brightBlue;
+        }
+
+        &:active {
+            border-bottom: unset;
+            border-top: solid 0.4rem $veryDarkDesaturatedBlueMainBackground;
+        }
+    }
+
+    &--reset {
+        grid-area: reset;
+    }
+
+    &--equals {
+        grid-area: equals;
+        color: $white;
+        background-color: $redKeyBackgroundToggle;
+        border-bottom: solid 0.4rem $darkRedKeyShadow;
+
+        &:hover {
+            background-color: $brightRed;
+        }
+
+        &:active {
+            border-bottom: unset;
+            border-top: solid 0.4rem $veryDarkDesaturatedBlueMainBackground;
+        }
+    }
+
+    @include max($breakSize) {
+        font-size: 3rem;
+    }
+
+    &[data-theme="light"] {
+        background-color: $lightGrayishYellowKeyBackground;
+        border-bottom: solid 0.4rem $darkGrayishOrangeKeyShadow;
+        color: $veryDarkGrayishYellow;
+
+        &.button:hover {
+            background-color: $white;
+        }
+
+        &.button:active {
+            border-bottom: unset;
+            border-top: solid 0.4rem $lightGrayMainBackground;
+        }
+
+        &.button--blue {
+            background-color: $darkModerateCyanKeyBackground;
+            border-bottom: solid 0.4rem $veryDarkCyanKeyShadow;
+            color: $white;
+
+            &:hover {
+                background-color: $brightCyan;
+            }
+
+            &:active {
+                border-bottom: unset;
+                border-top: solid 0.4rem $lightGrayMainBackground;
+            }
+        }
+
+        &.button--equals {
+            color: $white;
+            background-color: $orangeKeyBackgroundToggle;
+            border-bottom: solid 0.4rem $darkOrangeKeyShadow;
+
+            &:hover {
+                background-color: $brightOrange;
+            }
+
+            &:active {
+                border-bottom: unset;
+                border-top: solid 0.4rem $lightGrayMainBackground;
+            }
+        }
+    }
+
+    &[data-theme="purple"] {
+        background-color: $veryDarkVioletKeyBackground;
+        border-bottom: solid 0.4rem $darkMagentaKeyShadow;
+        color: $lightYellow;
+
+        &.button:hover {
+            background-color: $brightPurple;
+        }
+
+        &.button:active {
+            border-bottom: unset;
+            border-top: solid 0.4rem $veryDarkVioletMainBackground;
+        }
+
+        &.button--blue {
+            background-color: $darkVioletKeyBackground;
+            border-bottom: solid 0.4rem $vividMagentaKeyShadow;
+            color: $white;
+
+            &:hover {
+                background-color: $brightNightmare;
+            }
+
+            &:active {
+                border-bottom: unset;
+                border-top: solid 0.4rem $veryDarkVioletMainBackground;
+            }
+        }
+
+        &.button--equals {
+            color: $veryDarkBlue;
+            background-color: $pureCyanKeyBackgroundToggle;
+            border-bottom: solid 0.4rem $softCyanKeyShadow;
+
+            &:hover {
+                background-color: $brightOcean;
+            }
+
+            &:active {
+                border-bottom: unset;
+                border-top: solid 0.4rem $veryDarkVioletMainBackground;
+            }
+        }
+    }
+}

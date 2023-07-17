@@ -10,20 +10,76 @@
     font-size: 5rem;
     text-align: end;
     margin-bottom: 2.2rem;
+    height: 12rem;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    display: flex;
+    flex-flow: row-reverse;
+
+    & > span {
+        color: $veryDarkGrayishBlue;
+        font-size: 1.8rem;
+        position: absolute;
+        bottom: 1rem;
+        right: 3rem;
+    }
+
+    & > p {
+        white-space: nowrap;
+
+        &[data-success="true"] {
+            animation: calculated 0.1s ease-in-out forwards;
+        }
+    }
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #00000000;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+    }
+
+    scrollbar-width: thin; // firefox
+    scrollbar-color: $veryDarkDesaturatedBlueToggleBackgroundKeypadBackground; // firefox
+    &::-webkit-scrollbar-thumb {
+        background-color: $veryDarkDesaturatedBlueToggleBackgroundKeypadBackground;
+    }
 
     @include max($breakSize) {
         padding: 2.8rem 2.6rem;
         font-size: 3.5rem;
+        height: 8rem;
+
+        & > span {
+            top: 0.8rem;
+        }
     }
 
     &[data-theme="light"] {
         background-color: $veryLightGrayScreenBackground;
         color: $veryDarkGrayishYellow;
+
+        scrollbar-color: $grayishRedToggleBackgroundKeypadBackground; // firefox
+        &::-webkit-scrollbar-thumb {
+            background-color: $grayishRedToggleBackgroundKeypadBackground;
+        }
     }
 
     &[data-theme="purple"] {
         background-color: $veryDarkVioletToggleBackgroundKeypadBackgroundScreenBackground;
         color: $lightYellow;
+
+        scrollbar-color: $veryDarkVioletKeyBackground; // firefox
+        &::-webkit-scrollbar-thumb {
+            background-color: $veryDarkVioletKeyBackground;
+        }
     }
 }
 
@@ -43,135 +99,25 @@
         ". . . ."
         "reset reset equals equals";
 
-    &__button {
-        appearance: none;
-        border: 0;
-        border-radius: 0.8rem;
-        background-color: $lightGrayishOrangeKeyBackground;
-        border-bottom: solid 0.4rem $grayishOrangeKeyShadow;
-        color: $desaturatedDarkBlueKeyShadow;
-        font-size: 4rem;
-        min-height: 7rem;
-        padding-top: 0.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition: all 0.2s;
-
-        &:hover,
-        &:active {
-            background-color: $white;
-        }
-
-        &--blue {
-            background-color: $desaturatedDarkBlueKeyBackground;
-            border-bottom: solid 0.4rem $desaturatedDarkBlueKeyShadow;
-            color: $white;
-            font-size: 2.1rem !important;
-
-            &:hover,
-            &:active {
-                background-color: $brightBlue;
-            }
-        }
-
-        &--reset {
-            grid-area: reset;
-        }
-
-        &--equals {
-            grid-area: equals;
-            color: $white;
-            background-color: $redKeyBackgroundToggle;
-            border-bottom: solid 0.4rem $darkRedKeyShadow;
-
-            &:hover,
-            &:active {
-                background-color: $brightRed;
-            }
-        }
-
-        @include max($breakSize) {
-            font-size: 3rem;
-        }
-    }
-
     @include max($breakSize) {
         gap: 1rem;
     }
 
     &[data-theme="light"] {
         background-color: $grayishRedToggleBackgroundKeypadBackground;
-
-        .keypad__button {
-            background-color: $lightGrayishYellowKeyBackground;
-            border-bottom: solid 0.4rem $darkGrayishOrangeKeyShadow;
-            color: $veryDarkGrayishYellow;
-
-            &:hover,
-            &:active {
-                background-color: $white;
-            }
-
-            &--blue {
-                background-color: $darkModerateCyanKeyBackground;
-                border-bottom: solid 0.4rem $veryDarkCyanKeyShadow;
-                color: $white;
-
-                &:hover,
-                &:active {
-                    background-color: $brightCyan;
-                }
-            }
-
-            &--equals {
-                color: $white;
-                background-color: $orangeKeyBackgroundToggle;
-                border-bottom: solid 0.4rem $darkOrangeKeyShadow;
-
-                &:hover,
-                &:active {
-                    background-color: $brightOrange;
-                }
-            }
-        }
     }
 
     &[data-theme="purple"] {
         background-color: $veryDarkVioletToggleBackgroundKeypadBackgroundScreenBackground;
+    }
+}
 
-        .keypad__button {
-            background-color: $veryDarkVioletKeyBackground;
-            border-bottom: solid 0.4rem $darkMagentaKeyShadow;
-            color: $lightYellow;
+@keyframes calculated {
+    50% {
+        font-size: 5.5rem;
+    }
 
-            &:hover,
-            &:active {
-                background-color: $brightPurple;
-            }
-
-            &--blue {
-                background-color: $darkVioletKeyBackground;
-                border-bottom: solid 0.4rem $vividMagentaKeyShadow;
-                color: $white;
-
-                &:hover,
-                &:active {
-                    background-color: $brightNightmare;
-                }
-            }
-
-            &--equals {
-                color: $veryDarkBlue;
-                background-color: $pureCyanKeyBackgroundToggle;
-                border-bottom: solid 0.4rem $softCyanKeyShadow;
-
-                &:hover,
-                &:active {
-                    background-color: $brightOcean;
-                }
-            }
-        }
+    100% {
+        font-size: 5rem;
     }
 }
