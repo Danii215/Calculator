@@ -59,7 +59,7 @@ I wish to come back to this project again some other time and make more function
 ## Author
 
 -   Github - [Danii215](https://github.com/Danii215)
--   Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/Danii215)
+-   Frontend Mentor - [@Danii215](https://www.frontendmentor.io/profile/Danii215)
 
 ## Acknowledgments
 
